@@ -3,7 +3,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import actions from '../actions';
 
-class Search extends Component {
+class SearchBar extends Component {
 
 	render() {
     return (
@@ -24,4 +24,4 @@ function dispatch(dispatch) {
   return bindActionCreators(actions.search, dispatch);
 }
 
-export default connect(select, dispatch)(Search);
+export default connect(select, dispatch)(SearchBar);
