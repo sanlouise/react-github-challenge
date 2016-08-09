@@ -1,26 +1,16 @@
-import { AppContainer } from 'react-hot-loader';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
+import { Provider } from 'react-redux';
+import { createStore, applyMiddleware } from 'redux';
+import ReduxPromise from 'redux-promise';
 
-const rootEl = document.getElementById('root');
+import App from './components/app';
+import reducers from './reducers';
+
+const createStoreWithMiddleware = applyMiddleware(ReduxPromise)(createStore);
+
 ReactDOM.render(
-  <AppContainer>
+  <Provider store={createStoreWithMiddleware(reducers)}>
     <App />
-  </AppContainer>,
-  rootEl
-);
-
-if (module.hot) {
-  module.hot.accept('./App', () => {
-    // If you use Webpack 2 in ES modules mode, you can
-    // use <App /> here rather than require() a <NextApp />.
-    const NextApp = require('./App').default;
-    ReactDOM.render(
-      <AppContainer>
-        <NextApp />
-      </AppContainer>,
-      rootEl
-    );
-  });
-}
+  </Provider>
+  , document.querySelector('.container'));
