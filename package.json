@@ -1,7 +1,7 @@
 {
   "name": "react-github",
   "version": "1.0.0",
-  "description": "A coding challenge for our prospective employees",
+  "description": "GitHub Repository Lookup App",
   "scripts": {
     "start": "node server.js",
     "lint": "eslint src"
