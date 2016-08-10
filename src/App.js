@@ -1,16 +1,17 @@
-import React from 'react';
-import { Router, Route, IndexRoute, browserHistory } from 'react-router';
+import React, { Component } from 'react';
+import SearchBar from '../containers/search_bar'
 
-import Layout from './components/Layout';
-import Home from './components/Home';
-
-export default function App() {
-  return (
-    <Router history={browserHistory}>
-      <Route path='/' component={Layout}>
-        <IndexRoute component={Home} />
-        <Route path='counter' component={Counter} />
-      </Route>
-    </Router>
-  );
+class App extends Component {
+  render() {
+    return (
+      <div className="container">
+        <h1 className="title">GitHub</h1>
+        <main>
+           <SearchBar />
+        </main>
+      </div>
+    )
+  }
 }
+
+export default App;
